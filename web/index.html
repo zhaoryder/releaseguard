@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f3ed" />
+    <meta name="description" content="ReleaseGuard — inspect GitHub Releases before your users do." />
+    <title>ReleaseGuard — Release quality gate</title>
+    <link rel="icon" href="/releaseguard-mark.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="ReleaseGuard home">
+        <img src="/releaseguard-mark.svg" alt="" />
+        <span>ReleaseGuard</span>
+      </a>
+      <div class="top-actions">
+        <a class="text-link" href="https://github.com/zhaoryder/releaseguard" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <button id="language" class="language" type="button" aria-label="Switch language">中文 / EN</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow" data-i18n="eyebrow">SHIP WITH CONFIDENCE</p>
+        <h1 data-i18n="title">Release quality, before your users find the bug.</h1>
+        <p class="lede" data-i18n="lede">Paste a GitHub release. ReleaseGuard checks assets, checksums, platform coverage, version names, and binary headers in seconds.</p>
+        <form id="check-form" class="check-form">
+          <label class="sr-only" for="target" data-i18n="targetLabel">GitHub repository or release URL</label>
+          <input id="target" name="target" autocomplete="url" placeholder="owner/repo or https://github.com/owner/repo/releases/tag/v1.2.3" value="zhaoryder/releaseguard" required />
+          <button id="check" type="submit"><span data-i18n="check">Check release</span><span aria-hidden="true">→</span></button>
+        </form>
+        <p class="hint" data-i18n="hint">Public repositories work without a token. Runtime requests stay local to this page and GitHub.</p>
+      </section>
+
+      <section id="empty" class="empty-state" aria-live="polite">
+        <div class="empty-mark">✓</div>
+        <div><strong data-i18n="emptyTitle">A release health check in one paste.</strong><p data-i18n="emptyCopy">Start with a public repository above. The report will show exactly what to fix before shipping.</p></div>
+      </section>
+
+      <section id="loading" class="loading" hidden aria-live="polite"><span class="spinner"></span><span data-i18n="loading">Inspecting release assets…</span></section>
+      <section id="error" class="error" hidden role="alert"></section>
+      <section id="report" hidden aria-live="polite"></section>
+    </main>
+    <footer><span>ReleaseGuard</span><span data-i18n="footer">Open source · runs on Vercel · no sign-in</span></footer>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
