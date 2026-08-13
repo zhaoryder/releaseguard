@@ -9,18 +9,19 @@
 </head>
 <body>
   <main>
-    <header><img class="mark" src="assets/releaseguard-mark.svg" alt=""><div><h1>ReleaseGuard</h1><p>Release asset inspection</p></div><span class="local-badge">LOCAL ONLY</span></header>
+    <header><img class="mark" src="assets/releaseguard-mark.svg" alt=""><div><h1>ReleaseGuard</h1><p data-i18n="subtitle">Release asset inspection</p></div><span class="local-badge">LOCAL ONLY</span><select id="language" aria-label="Language"><option value="en">English</option><option value="zh">简体中文</option></select></header>
     <div class="rule"></div>
-    <section class="intro"><p class="eyebrow">PRE-FLIGHT CHECK</p><h2>Ship the files you meant to ship.</h2><p>Inspect a public GitHub Release for missing platforms, mismatched architecture, stale versions, and absent checksums.</p></section>
+    <section class="intro"><p class="eyebrow" data-i18n="eyebrow">PRE-FLIGHT CHECK</p><h2 data-i18n="headline">Ship the files you meant to ship.</h2><p data-i18n="intro">Inspect a public GitHub Release for missing platforms, mismatched architecture, stale versions, and absent checksums.</p></section>
     <form id="scan-form">
-      <label for="target">GitHub repository or Release URL</label>
-      <div class="input-row"><input id="target" value="cli/cli" placeholder="owner/repo or a GitHub Release URL" spellcheck="false"><button id="scan" type="submit">Check release</button></div>
-      <p class="hint">Public repositories need no token. ReleaseGuard never runs installers.</p>
+      <label for="target" data-i18n="targetLabel">GitHub repository or Release URL</label>
+      <div class="input-row"><input id="target" value="cli/cli" placeholder="owner/repo or a GitHub Release URL" spellcheck="false"><button id="scan" type="submit" data-i18n="check">Check release</button></div>
+      <p class="hint" data-i18n="hint">Public repositories need no token. ReleaseGuard never runs installers.</p>
     </form>
-    <section id="empty" class="empty"><img src="assets/releaseguard-mark.svg" alt=""><div><h2>No release loaded</h2><p>Enter a repository above to begin the inspection.</p></div></section>
+    <section id="empty" class="empty"><img src="assets/releaseguard-mark.svg" alt=""><div><h2 data-i18n="emptyTitle">No release loaded</h2><p data-i18n="emptyText">Enter a repository above to begin the inspection.</p></div></section>
     <section id="result" class="hidden">
-      <div class="summary"><div><span id="repo"></span><button id="open-release" class="link">Open Release ↗</button><h2 id="release-name"></h2></div><div id="score" class="score"></div></div>
+      <div class="summary"><div><span id="repo"></span><button id="open-release" class="link" data-i18n="openRelease">Open Release ↗</button><h2 id="release-name"></h2></div><div class="summary-actions"><button id="download-current" class="download" data-i18n="downloadCurrent">Download for this computer</button><div id="score" class="score"></div></div></div>
       <div id="counts" class="counts"></div>
+      <div class="assets-heading"><h3 data-i18n="assetsTitle">Release assets</h3><span id="platform-label"></span></div><div id="assets" class="assets"></div>
       <div id="findings" class="findings"></div>
     </section>
     <section id="error" class="error hidden"></section>
