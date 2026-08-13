@@ -6,3 +6,5 @@ native/macos/ReleaseGuardMac/.build/
 reports/
 *.log
 .DS_Store
+.vercel/
+.vercel
