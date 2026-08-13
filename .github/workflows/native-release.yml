@@ -1,0 +1,92 @@
+name: Native release packages
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  macos:
+    runs-on: macos-14
+    defaults:
+      run:
+        working-directory: native/macos/ReleaseGuardMac
+    steps:
+      - uses: actions/checkout@v4
+      - uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "5.10"
+      - run: swift build -c release
+      - name: Package macOS app
+        shell: bash
+        run: |
+          set -euo pipefail
+          app="ReleaseGuard.app"
+          mkdir -p "$app/Contents/MacOS" "$app/Contents/Resources"
+          cp .build/arm64-apple-macosx/release/ReleaseGuardMac "$app/Contents/MacOS/ReleaseGuardMac"
+          chmod +x "$app/Contents/MacOS/ReleaseGuardMac"
+          cat > "$app/Contents/Info.plist" <<'PLIST'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict><key>CFBundleExecutable</key><string>ReleaseGuardMac</string><key>CFBundleIdentifier</key><string>dev.zhaoryder.releaseguard.native</string><key>CFBundleName</key><string>ReleaseGuard</string><key>CFBundlePackageType</key><string>APPL</string><key>CFBundleShortVersionString</key><string>${GITHUB_REF_NAME#v}</string></dict></plist>
+          PLIST
+          codesign --force --deep --sign - "$app"
+          ditto -c -k --keepParent "$app" "ReleaseGuard-macos-arm64-${GITHUB_REF_NAME#v}.zip"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-macos
+          path: native/macos/ReleaseGuardMac/ReleaseGuard-macos-*.zip
+
+  windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: native/windows/ReleaseGuard.WinUI
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - run: dotnet publish -c Release -r win-x64 --self-contained true -o publish-x64
+      - run: $version = $env:GITHUB_REF_NAME.Substring(1); Compress-Archive -Path publish-x64\* -DestinationPath "ReleaseGuard-windows-x64-$version.zip"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-windows
+          path: native/windows/ReleaseGuard.WinUI/ReleaseGuard-windows-*.zip
+
+  linux:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: native/linux/releaseguard-gtk
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y libgtk-4-dev
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo build --release
+      - run: tar -czf "ReleaseGuard-linux-x64-${GITHUB_REF_NAME#v}.tar.gz" -C target/release releaseguard-gtk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-linux
+          path: native/linux/releaseguard-gtk/ReleaseGuard-linux-x64-*.tar.gz
+
+  publish:
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: [macos, windows, linux]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: native-*
+          merge-multiple: true
+          path: native-assets
+      - name: Create checksums
+        working-directory: native-assets
+        run: sha256sum * > SHA256SUMS-native.txt
+      - name: Upload native packages to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${GITHUB_REF_NAME}" native-assets/* --repo "${GITHUB_REPOSITORY}" --clobber
