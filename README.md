@@ -6,9 +6,9 @@
 
 English · [简体中文](README.zh-CN.md)
 
-### Your CI passed. Did your downloads?
+### Your CI passed. Which download should your user pick?
 
-**A quality gate for GitHub Release assets.** Catch missing platforms, mislabeled architectures, empty installers, version drift, and missing checksums before users do.
+**A quality gate and download advisor for GitHub Release assets.** Catch missing platforms, mislabeled architectures, empty installers, version drift, and missing checksums—and tell each user which file fits their OS and CPU.
 
 [Quick start](#run-it-in-30-seconds) · [GitHub Action](#add-the-quality-gate) · [Checks](#what-it-catches) · [Example report](docs/example-report.png)
 
@@ -39,8 +39,11 @@ If you ship a desktop, CLI, or mobile release with more than one platform, this 
 No token is required for public repositories. Node.js 20+ is required.
 
 ```bash
-# Latest release
+# Latest release; the final section tells you what to download on this machine
 npx --yes github:zhaoryder/releaseguard check cli/cli
+
+# Recommend for a specific device instead of the current machine
+npx --yes github:zhaoryder/releaseguard check cli/cli --platform macos --arch arm64
 
 # Exact tag or full GitHub URL
 npx --yes github:zhaoryder/releaseguard check owner/repo@v1.2.0

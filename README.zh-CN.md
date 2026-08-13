@@ -6,9 +6,9 @@
 
 [English](README.md) · 简体中文
 
-### CI 绿了。用户下载的文件呢？
+### CI 绿了。用户到底该下载哪个文件？
 
-**给 GitHub Release 产物加一道质量门禁。** 在用户发现问题之前，找出缺失的平台、标错的架构、空安装包、版本不一致和缺失的校验文件。
+**给 GitHub Release 产物加质量门禁和下载建议。** 在用户发现问题之前，找出缺失的平台、标错的架构、空安装包、版本不一致和缺失的校验文件，并告诉用户当前系统应该下载哪个文件。
 
 [30 秒上手](#30-秒上手) · [接入 GitHub Actions](#接入-github-actions) · [检查项目](#它能发现什么) · [示例报告](docs/example-report.png)
 
@@ -41,6 +41,9 @@ ReleaseGuard 检查的是用户真正会下载到的 Release，而不是你以�
 ```bash
 # 检查最新 Release
 npx --yes github:zhaoryder/releaseguard check cli/cli
+
+# 指定设备，直接获得对应下载建议
+npx --yes github:zhaoryder/releaseguard check cli/cli --platform macos --arch arm64
 
 # 检查指定标签或完整 GitHub URL
 npx --yes github:zhaoryder/releaseguard check owner/repo@v1.2.0
