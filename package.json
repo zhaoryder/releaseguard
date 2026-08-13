@@ -1,22 +1,113 @@
 {
   "name": "releaseguard",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A quality gate for GitHub Release assets.",
   "type": "module",
-  "bin": { "releaseguard": "dist/cli.js" },
+  "bin": {
+    "releaseguard": "dist/cli.js"
+  },
   "exports": "./dist/index.js",
-  "files": ["dist", "action.yml", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "action.yml",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
+    "desktop": "npm run build && electron desktop/main.cjs",
+    "desktop:dist": "npm run build && electron-builder",
     "build": "rm -rf dist && tsc",
     "check": "tsc --noEmit",
     "test": "node --import tsx --test tests/*.test.ts",
     "prepare": "npm run build",
     "prepack": "npm run check && npm test && npm run build"
   },
-  "engines": { "node": ">=20" },
-  "keywords": ["github-releases", "release", "quality-gate", "ci", "github-action", "supply-chain"],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "github-releases",
+    "release",
+    "quality-gate",
+    "ci",
+    "github-action",
+    "supply-chain"
+  ],
   "author": "zhaoryder",
   "license": "MIT",
-  "dependencies": { "commander": "^14.0.0", "picocolors": "^1.1.1", "yaml": "^2.8.1" },
-  "devDependencies": { "@types/node": "^24.0.0", "tsx": "^4.20.0", "typescript": "^5.9.0" }
+  "dependencies": {
+    "commander": "^14.0.0",
+    "picocolors": "^1.1.1",
+    "yaml": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  },
+  "main": "desktop/main.cjs",
+  "build": {
+    "appId": "dev.zhaoryder.releaseguard",
+    "productName": "ReleaseGuard",
+    "artifactName": "ReleaseGuard-${version}-${os}-${arch}.${ext}",
+    "files": [
+      "desktop/**/*",
+      "dist/**/*",
+      "package.json",
+      "LICENSE"
+    ],
+    "directories": {
+      "output": "desktop-release"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64",
+            "universal"
+          ]
+        }
+      ],
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "category": "Development"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
 }
