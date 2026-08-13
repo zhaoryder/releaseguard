@@ -1,4 +1,4 @@
-name: ReleaseGuard
+name: ReleaseGuard - Release Asset Quality Gate
 description: Verify that GitHub Release assets are complete, correctly labeled, and ready for users.
 author: zhaoryder
 branding:
