@@ -3,7 +3,16 @@ import { fetchHeader } from "./github.js";
 import { archOf, kindOf, platformOf, versionTokens } from "./names.js";
 import type { Arch, AssetAnalysis, Finding, Policy, Release, Report } from "./types.js";
 
-const checksumPattern = /(sha(?:sum)?s?[-_]?256|checksums?)(?:\.|-|_|$)/i;
+const checksumPattern = /(?:sha256s?|sha(?:sum)?s?[-_]?256|checksums?)/i;
+
+function isWindowsInstallerStub(platform: string, kind: string, declaredArch: Arch, detectedKind: string, detectedArch: Arch, name: string): boolean {
+  return platform === "windows"
+    && kind === "exe"
+    && detectedKind === "pe"
+    && detectedArch === "x86"
+    && (declaredArch === "x64" || declaredArch === "arm64")
+    && /(?:^|[-_.])win(?:dows)?[-_.](?:x64|arm64)(?:[-_.]|$)/i.test(name);
+}
 
 export async function analyze(release: Release, policy: Policy): Promise<Report> {
   const findings: Finding[] = [];
@@ -35,7 +44,18 @@ export async function analyze(release: Release, policy: Policy): Promise<Report>
       try {
         const detected = detectBinary(await fetchHeader(asset));
         detectedArch = detected.arch;
-        if (declaredArch !== "unknown" && detected.arch !== "unknown" && declaredArch !== detected.arch) local.push({ rule: "architecture", level: "error", asset: asset.name, message: `Filename says ${declaredArch}, binary says ${detected.arch}.`, evidence: detected.kind });
+        if (declaredArch !== "unknown" && detected.arch !== "unknown" && declaredArch !== detected.arch) {
+          const installerStub = isWindowsInstallerStub(platform, kind, declaredArch, detected.kind, detected.arch, asset.name);
+          local.push({
+            rule: "architecture",
+            level: installerStub ? "warning" : "error",
+            asset: asset.name,
+            message: installerStub
+              ? `Installer stub is ${detected.arch}; the packaged Windows payload is declared ${declaredArch}.`
+              : `Filename says ${declaredArch}, binary says ${detected.arch}.`,
+            evidence: detected.kind,
+          });
+        }
         else if (detected.arch !== "unknown") local.push({ rule: "architecture", level: "pass", asset: asset.name, message: `Detected ${detected.arch} binary.`, evidence: detected.kind });
       } catch (error) { local.push({ rule: "download", level: "warning", asset: asset.name, message: "Could not inspect binary header.", evidence: error instanceof Error ? error.message : String(error) }); }
     }
