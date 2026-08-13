@@ -33,7 +33,7 @@
     "github-action",
     "supply-chain"
   ],
-  "author": "zhaoryder",
+  "author": { "name": "zhaoryder", "email": "zhaoryder@users.noreply.github.com" },
   "license": "MIT",
   "dependencies": {
     "commander": "^14.0.0",
