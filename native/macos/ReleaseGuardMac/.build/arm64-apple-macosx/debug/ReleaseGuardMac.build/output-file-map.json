@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/master.swiftdeps"
+  },
+  "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/Sources/ReleaseGuardMac/main.swift": {
+    "dependencies": "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/main.d",
+    "object": "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/main.swift.o",
+    "swiftmodule": "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/main.swiftdeps",
+    "diagnostics": "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/main.dia"
+  }
+}

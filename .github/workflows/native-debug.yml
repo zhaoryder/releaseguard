@@ -1,0 +1,45 @@
+name: Native clients
+
+on:
+  push:
+    branches: [main]
+    paths: ["native/**", ".github/workflows/native-debug.yml"]
+  pull_request:
+    paths: ["native/**", ".github/workflows/native-debug.yml"]
+  workflow_dispatch:
+
+jobs:
+  macos-swiftui:
+    runs-on: macos-14
+    defaults:
+      run:
+        working-directory: native/macos/ReleaseGuardMac
+    steps:
+      - uses: actions/checkout@v4
+      - uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "5.10"
+      - run: swift build -c release
+
+  windows-winui:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: native/windows/ReleaseGuard.WinUI
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - run: dotnet build -p:EnableWindowsTargeting=true --configuration Release
+
+  linux-gtk:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: native/linux/releaseguard-gtk
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y libgtk-4-dev
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo check

@@ -1,0 +1,10 @@
+[package]
+name = "releaseguard-gtk"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+gtk4 = "0.9"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = ["rt", "macros"] }

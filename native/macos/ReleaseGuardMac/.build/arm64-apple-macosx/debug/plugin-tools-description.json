@@ -1,0 +1,265 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.ReleaseGuardMac-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/sources",
+      "importPath" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/Sources/ReleaseGuardMac/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "ReleaseGuardMac",
+      "moduleOutputPath" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/Modules/ReleaseGuardMac.swiftmodule",
+      "objects" : [
+        "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "ReleaseGuardMac_main",
+        "-parse-as-library",
+        "-swift-version",
+        "5",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "releaseguardmac"
+      ],
+      "outputFileMapPath" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/Modules/ReleaseGuardMac.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/Sources/ReleaseGuardMac/main.swift"
+      ],
+      "tempsPath" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "ReleaseGuardMac" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "ReleaseGuardMac",
+      "-package-name",
+      "releaseguardmac",
+      "-c",
+      "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/Sources/ReleaseGuardMac/main.swift",
+      "-I",
+      "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "ReleaseGuardMac_main",
+      "-parse-as-library",
+      "-swift-version",
+      "5",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "releaseguardmac",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "ReleaseGuardMac" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac-entitlement.plist"
+    },
+    "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/Sources/ReleaseGuardMac/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/sources"
+    },
+    "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.build/main.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/ReleaseGuardMac.product/Objects.LinkFileList"
+    },
+    "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/ryder/Documents/Codex/2026-08-13/ban/releaseguard/native/macos/ReleaseGuardMac/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}
