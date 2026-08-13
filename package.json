@@ -1,6 +1,6 @@
 {
   "name": "releaseguard",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A quality gate for GitHub Release assets.",
   "type": "module",
   "bin": {
@@ -33,7 +33,10 @@
     "github-action",
     "supply-chain"
   ],
-  "author": { "name": "zhaoryder", "email": "zhaoryder@users.noreply.github.com" },
+  "author": {
+    "name": "zhaoryder",
+    "email": "zhaoryder@users.noreply.github.com"
+  },
   "license": "MIT",
   "dependencies": {
     "commander": "^14.0.0",

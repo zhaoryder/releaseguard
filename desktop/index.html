@@ -9,13 +9,15 @@
 </head>
 <body>
   <main>
-    <header><div class="mark">RG</div><div><h1>ReleaseGuard</h1><p>Inspect the files your users actually download.</p></div></header>
+    <header><img class="mark" src="assets/releaseguard-mark.svg" alt=""><div><h1>ReleaseGuard</h1><p>Release asset inspection</p></div><span class="local-badge">LOCAL ONLY</span></header>
+    <div class="rule"></div>
+    <section class="intro"><p class="eyebrow">PRE-FLIGHT CHECK</p><h2>Ship the files you meant to ship.</h2><p>Inspect a public GitHub Release for missing platforms, mismatched architecture, stale versions, and absent checksums.</p></section>
     <form id="scan-form">
       <label for="target">GitHub repository or Release URL</label>
       <div class="input-row"><input id="target" value="cli/cli" placeholder="owner/repo or a GitHub Release URL" spellcheck="false"><button id="scan" type="submit">Check release</button></div>
       <p class="hint">Public repositories need no token. ReleaseGuard never runs installers.</p>
     </form>
-    <section id="empty" class="empty"><div class="shield">✓</div><h2>Ready when your release is</h2><p>Check platform coverage, checksums, versions, empty assets, and binary architecture.</p></section>
+    <section id="empty" class="empty"><img src="assets/releaseguard-mark.svg" alt=""><div><h2>No release loaded</h2><p>Enter a repository above to begin the inspection.</p></div></section>
     <section id="result" class="hidden">
       <div class="summary"><div><span id="repo"></span><button id="open-release" class="link">Open Release ↗</button><h2 id="release-name"></h2></div><div id="score" class="score"></div></div>
       <div id="counts" class="counts"></div>

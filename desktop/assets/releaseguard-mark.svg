@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ReleaseGuard">
+  <path fill="#15191F" d="M10 12h30l14 14v26H10z"/>
+  <path fill="#F7F5EF" d="M14 16h24v12h12v20H14z"/>
+  <path fill="#15191F" d="M38 16l12 12H38z"/>
+  <path fill="#2F6FEB" d="M18 34h28v4H18z"/>
+  <path fill="#2F6FEB" d="M22 38h20v10H22z"/>
+  <path fill="none" stroke="#F7F5EF" stroke-linecap="square" stroke-linejoin="miter" stroke-width="3" d="m27 42 4 4 7-8"/>
+</svg>

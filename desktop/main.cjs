@@ -8,7 +8,8 @@ function createWindow() {
     minWidth: 760,
     minHeight: 600,
     title: "ReleaseGuard",
-    backgroundColor: "#0b1020",
+    backgroundColor: "#f4f3ef",
+    icon: path.join(__dirname, "assets", "releaseguard-mark.svg"),
     webPreferences: {
       preload: path.join(__dirname, "preload.cjs"),
       contextIsolation: true,
