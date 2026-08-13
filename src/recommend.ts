@@ -3,18 +3,34 @@ import type { Arch, Asset, Platform, Recommendation } from "./types.js";
 
 const installKinds: Record<Platform, string[]> = { macos: ["dmg", "pkg", "zip"], windows: ["exe", "msi", "msix", "zip"], linux: ["appimage", "deb", "rpm", "snap", "tar.gz", "tar.xz"], android: ["apk", "aab"], other: ["zip", "tar.gz", "tar.xz"] };
 
-export function hostPlatform(platform = process.platform): Platform {
+export function hostPlatform(platform: string = process.platform): Platform {
   if (platform === "darwin") return "macos";
   if (platform === "win32") return "windows";
   if (platform === "linux") return "linux";
   return "other";
 }
 
-export function hostArch(arch = process.arch): Arch {
+export function hostArch(arch: string = process.arch): Arch {
   if (["arm64", "aarch64"].includes(arch)) return "arm64";
   if (["x64", "amd64"].includes(arch)) return "x64";
   if (["ia32", "x86", "i386"].includes(arch)) return "x86";
   return "unknown";
+}
+
+export function resolvePlatform(value?: string): Platform {
+  if (value === "macos" || value === "darwin") return "macos";
+  if (value === "windows" || value === "win32") return "windows";
+  if (value === "linux") return "linux";
+  if (value === "android") return "android";
+  return hostPlatform(value);
+}
+
+export function resolveArch(value?: string): Arch {
+  if (value === "x64" || value === "amd64") return "x64";
+  if (value === "arm64" || value === "aarch64") return "arm64";
+  if (value === "x86" || value === "ia32" || value === "i386") return "x86";
+  if (value === "armv7" || value === "armhf") return "armv7";
+  return hostArch(value);
 }
 
 function score(asset: Asset, platform: Platform, arch: Arch): number {

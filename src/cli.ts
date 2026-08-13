@@ -5,7 +5,7 @@ import { analyze } from "./analyze.js";
 import { fetchRelease } from "./github.js";
 import { loadPolicy } from "./policy.js";
 import { size, writeReports } from "./report.js";
-import { hostArch, hostPlatform, recommendAsset } from "./recommend.js";
+import { hostArch, hostPlatform, recommendAsset, resolveArch, resolvePlatform } from "./recommend.js";
 
 const program = new Command();
 program.name("releaseguard").description("Verify GitHub Release assets and tell users which download fits their device.").version("0.1.0");
@@ -15,8 +15,10 @@ program.command("check <release>")
   .option("--html <path>", "write a shareable HTML report")
   .option("--json <path>", "write a stable JSON report")
   .option("--format <format>", "terminal output: human or json", "human")
+  .option("--platform <platform>", "recommend for macos, windows, linux, or android")
+  .option("--arch <arch>", "recommend for arm64, x64, x86, or armv7")
   .option("--fail-on <level>", "exit non-zero on error, warning, or never", "error")
-  .action(async (target: string, options: { policy?: string; html?: string; json?: string; format: string; failOn: string }) => {
+  .action(async (target: string, options: { policy?: string; html?: string; json?: string; format: string; failOn: string; platform?: string; arch?: string }) => {
     const policy = await loadPolicy(options.policy);
     const report = await analyze(await fetchRelease(target), policy);
     await writeReports(report, { ...(options.html ? { html: options.html } : {}), ...(options.json ? { json: options.json } : {}) });
@@ -31,8 +33,10 @@ program.command("check <release>")
       }
       console.log("\nAssets");
       for (const item of report.assets) console.log(`${item.platform.padEnd(8)} ${item.declaredArch.padEnd(10)} ${size(item.asset.size).padStart(9)}  ${item.asset.name}`);
-      const recommendation = recommendAsset(report.release.assets, hostPlatform(), hostArch());
-      console.log(`\nRecommended download for ${hostPlatform()} ${hostArch()}`);
+      const recommendationPlatform = options.platform ? resolvePlatform(options.platform) : hostPlatform();
+      const recommendationArch = options.arch ? resolveArch(options.arch) : hostArch();
+      const recommendation = recommendAsset(report.release.assets, recommendationPlatform, recommendationArch);
+      console.log(`\nRecommended download for ${recommendationPlatform} ${recommendationArch}`);
       if (recommendation.asset) {
         console.log(`${pc.green("→")} ${recommendation.asset.name}`);
         console.log(pc.dim(recommendation.reason));
