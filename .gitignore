@@ -1,5 +1,8 @@
 node_modules/
 dist/
+desktop-release/
+release-assets/
+native/macos/ReleaseGuardMac/.build/
 reports/
 *.log
 .DS_Store
