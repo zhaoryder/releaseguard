@@ -2,7 +2,7 @@
 
 # ReleaseGuard
 
-[![CI](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml/badge.svg)](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml) [![Latest release](https://img.shields.io/github/v/release/zhaoryder/releaseguard?display_name=tag&sort=semver)](https://github.com/zhaoryder/releaseguard/releases/latest) [![License](https://img.shields.io/github/license/zhaoryder/releaseguard)](LICENSE)
+[![CI](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml/badge.svg)](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml) [![Latest release](https://img.shields.io/github/v/release/zhaoryder/releaseguard?display_name=tag&sort=semver)](https://github.com/zhaoryder/releaseguard/releases/latest) [![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-ReleaseGuard-2088ff?logo=github)](https://github.com/marketplace/actions/releaseguard-release-asset-quality-gate) [![License](https://img.shields.io/github/license/zhaoryder/releaseguard)](LICENSE)
 
 English · [简体中文](README.zh-CN.md)
 
@@ -33,6 +33,8 @@ Building an installer and shipping an installer are different jobs. Problems oft
 ReleaseGuard inspects the release users actually download—not the build folder you hoped you uploaded.
 
 If you ship a desktop, CLI, or mobile release with more than one platform, this is the 30-second preflight worth adding before you share the download link. If it catches a real release bug for you, a Star or a sanitized fixture helps the project grow in the right direction.
+
+**Using GitHub Actions? [Install ReleaseGuard from the Marketplace](https://github.com/marketplace/actions/releaseguard-release-asset-quality-gate).**
 
 ## Run it in 30 seconds
 

@@ -2,7 +2,7 @@
 
 # ReleaseGuard
 
-[![CI](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml/badge.svg)](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml) [![最新版本](https://img.shields.io/github/v/release/zhaoryder/releaseguard?display_name=tag&sort=semver)](https://github.com/zhaoryder/releaseguard/releases/latest) [![许可证](https://img.shields.io/github/license/zhaoryder/releaseguard)](LICENSE)
+[![CI](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml/badge.svg)](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml) [![最新版本](https://img.shields.io/github/v/release/zhaoryder/releaseguard?display_name=tag&sort=semver)](https://github.com/zhaoryder/releaseguard/releases/latest) [![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-ReleaseGuard-2088ff?logo=github)](https://github.com/marketplace/actions/releaseguard-release-asset-quality-gate) [![许可证](https://img.shields.io/github/license/zhaoryder/releaseguard)](LICENSE)
 
 [English](README.md) · 简体中文
 
