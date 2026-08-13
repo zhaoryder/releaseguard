@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 - 2026-08-13
+
+- Make the composite Action execute its tag-pinned bundled CLI instead of fetching the moving main branch.
+
 ## 0.1.0 - 2026-08-13
 
 - Inspect latest releases, exact tags, and GitHub release URLs.

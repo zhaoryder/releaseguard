@@ -10,7 +10,7 @@ export function parseTarget(value: string): { repository: string; tag?: string }
 export async function fetchRelease(target: string, token = process.env.GITHUB_TOKEN): Promise<Release> {
   const { repository, tag } = parseTarget(target);
   const endpoint = `https://api.github.com/repos/${repository}/releases/${tag ? `tags/${encodeURIComponent(tag)}` : "latest"}`;
-  const response = await fetch(endpoint, { headers: { Accept: "application/vnd.github+json", "User-Agent": "releaseguard/0.1.0", ...(token ? { Authorization: `Bearer ${token}` } : {}) } });
+  const response = await fetch(endpoint, { headers: { Accept: "application/vnd.github+json", "User-Agent": "releaseguard/0.1.1", ...(token ? { Authorization: `Bearer ${token}` } : {}) } });
   if (response.status === 404) throw new Error(`No accessible ${tag ? `release ${tag}` : "latest release"} found for ${repository}.`);
   if (!response.ok) throw new Error(`GitHub API ${response.status}: ${response.statusText}`);
   const data = await response.json() as Record<string, unknown>;
@@ -21,7 +21,7 @@ export async function fetchRelease(target: string, token = process.env.GITHUB_TO
 export async function fetchHeader(asset: Asset, maxBytes = 1_048_576): Promise<Uint8Array> {
   const end = Math.min(asset.size, maxBytes) - 1;
   if (end < 0) return new Uint8Array();
-  const response = await fetch(asset.url, { headers: { Range: `bytes=0-${end}`, "User-Agent": "releaseguard/0.1.0" }, redirect: "follow" });
+  const response = await fetch(asset.url, { headers: { Range: `bytes=0-${end}`, "User-Agent": "releaseguard/0.1.1" }, redirect: "follow" });
   if (!response.ok && response.status !== 206) throw new Error(`Download failed (${response.status})`);
   return new Uint8Array(await response.arrayBuffer());
 }

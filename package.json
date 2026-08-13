@@ -1,6 +1,6 @@
 {
   "name": "releaseguard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A quality gate for GitHub Release assets.",
   "type": "module",
   "bin": { "releaseguard": "dist/cli.js" },

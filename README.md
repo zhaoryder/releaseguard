@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: zhaoryder/releaseguard@v0.1.0
+      - uses: zhaoryder/releaseguard@v0.1.1
         with:
           release: ${{ github.repository }}@${{ github.event.release.tag_name }}
 ```

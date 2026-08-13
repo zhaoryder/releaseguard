@@ -7,7 +7,7 @@ import { loadPolicy } from "./policy.js";
 import { size, writeReports } from "./report.js";
 
 const program = new Command();
-program.name("releaseguard").description("Verify that GitHub Release assets are ready for users.").version("0.1.0");
+program.name("releaseguard").description("Verify that GitHub Release assets are ready for users.").version("0.1.1");
 program.command("check <release>")
   .description("Check owner/repo, owner/repo@tag, or a GitHub release URL")
   .option("--policy <path>", "YAML policy file")

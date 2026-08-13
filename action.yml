@@ -30,4 +30,4 @@ runs:
         target="${RELEASEGUARD_TARGET:-${GITHUB_REPOSITORY}@${GITHUB_REF_NAME}}"
         policy_args=()
         if [ -f "$RELEASEGUARD_POLICY" ]; then policy_args=(--policy "$RELEASEGUARD_POLICY"); fi
-        npx --yes github:zhaoryder/releaseguard check "$target" "${policy_args[@]}" --fail-on "$RELEASEGUARD_FAIL_ON" --html releaseguard-report.html --json releaseguard-report.json
+        node "$GITHUB_ACTION_PATH/dist/cli.js" check "$target" "${policy_args[@]}" --fail-on "$RELEASEGUARD_FAIL_ON" --html releaseguard-report.html --json releaseguard-report.json
