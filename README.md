@@ -48,6 +48,8 @@ npx --yes github:zhaoryder/releaseguard check owner/repo --html release-report.h
 
 ReleaseGuard only reads public release metadata and bounded binary headers. It does not execute downloaded installers.
 
+> **macOS:** current community builds carry a complete ad-hoc signature but are not Apple-notarized yet. On first launch, Control-click the app and choose **Open**. A Developer ID–notarized build is planned; never disable Gatekeeper globally.
+
 ## Add the quality gate
 
 Create `releaseguard.yml`:

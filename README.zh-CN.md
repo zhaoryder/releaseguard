@@ -48,6 +48,8 @@ npx --yes github:zhaoryder/releaseguard check owner/repo --html release-report.h
 
 ReleaseGuard 只读取公开的 Release 元数据和有限范围内的二进制文件头，不会执行下载的安装程序。
 
+> **macOS：**当前社区构建包含完整的 ad-hoc 签名，但尚未经过 Apple 公证。首次启动时请按住 Control 点击 App，再选择**打开**。后续会提供 Developer ID 公证版本；请勿全局关闭 Gatekeeper。
+
 ## 接入 GitHub Actions
 
 创建 `releaseguard.yml`：

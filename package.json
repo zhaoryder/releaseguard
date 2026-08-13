@@ -1,6 +1,6 @@
 {
   "name": "releaseguard",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A quality gate for GitHub Release assets.",
   "type": "module",
   "bin": {
@@ -75,7 +75,9 @@
           ]
         }
       ],
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.developer-tools",
+      "identity": "-",
+      "hardenedRuntime": false
     },
     "win": {
       "target": [
