@@ -1,1 +1,1 @@
-<Application x:Class="ReleaseGuard.WinUI.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"><Application.Resources /></Application>
+<Application x:Class="ReleaseGuard.WPF.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"><Application.Resources /></Application>

@@ -31,8 +31,7 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "8.0.x"
-      - uses: microsoft/setup-msbuild@v2
-      - run: msbuild ReleaseGuard.WinUI.csproj /p:Configuration=Release /p:Platform=x64
+      - run: dotnet build -p:EnableWindowsTargeting=true --configuration Release
 
   linux-gtk:
     runs-on: ubuntu-24.04

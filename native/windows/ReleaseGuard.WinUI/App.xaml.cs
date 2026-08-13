@@ -1,3 +1,3 @@
-using Microsoft.UI.Xaml;
-namespace ReleaseGuard.WinUI;
-public partial class App : Application { public static Window MainWindow { get; private set; } = null!; public App() { InitializeComponent(); } protected override void OnLaunched(LaunchActivatedEventArgs args) { MainWindow = new MainWindow(); MainWindow.Activate(); } }
+using System.Windows;
+namespace ReleaseGuard.WPF;
+public partial class App : Application { protected override void OnStartup(StartupEventArgs args) { base.OnStartup(args); new MainWindow().Show(); } }
