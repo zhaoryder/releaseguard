@@ -1,0 +1,19 @@
+name: Incorrect release result
+description: Report a false positive, false negative, or parser failure
+labels: [bug]
+body:
+  - type: input
+    id: release
+    attributes: { label: Public release URL }
+    validations: { required: true }
+  - type: textarea
+    id: result
+    attributes: { label: What did ReleaseGuard report, and what was expected? }
+    validations: { required: true }
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Safety
+      options:
+        - label: I removed private tokens, repository URLs, and proprietary filenames.
+          required: true

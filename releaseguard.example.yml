@@ -1,0 +1,8 @@
+requiredPlatforms:
+  - macos
+  - windows
+  - linux
+requireChecksums: true
+requireVersionInAssets: true
+maxAssetBytes: 1073741824
+allowPrerelease: false

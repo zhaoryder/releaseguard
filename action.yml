@@ -1,0 +1,33 @@
+name: ReleaseGuard
+description: Verify that GitHub Release assets are complete, correctly labeled, and ready for users.
+author: zhaoryder
+branding:
+  icon: shield
+  color: green
+inputs:
+  release:
+    description: owner/repo, owner/repo@tag, or GitHub release URL. Defaults to the current tag.
+    required: false
+  policy:
+    description: Path to releaseguard.yml
+    required: false
+    default: releaseguard.yml
+  fail-on:
+    description: error, warning, or never
+    required: false
+    default: error
+runs:
+  using: composite
+  steps:
+    - name: Run ReleaseGuard
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        RELEASEGUARD_TARGET: ${{ inputs.release }}
+        RELEASEGUARD_POLICY: ${{ inputs.policy }}
+        RELEASEGUARD_FAIL_ON: ${{ inputs.fail-on }}
+      run: |
+        target="${RELEASEGUARD_TARGET:-${GITHUB_REPOSITORY}@${GITHUB_REF_NAME}}"
+        policy_args=()
+        if [ -f "$RELEASEGUARD_POLICY" ]; then policy_args=(--policy "$RELEASEGUARD_POLICY"); fi
+        npx --yes github:zhaoryder/releaseguard check "$target" "${policy_args[@]}" --fail-on "$RELEASEGUARD_FAIL_ON" --html releaseguard-report.html --json releaseguard-report.json

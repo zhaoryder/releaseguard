@@ -1,0 +1,22 @@
+{
+  "name": "releaseguard",
+  "version": "0.1.0",
+  "description": "A quality gate for GitHub Release assets.",
+  "type": "module",
+  "bin": { "releaseguard": "dist/cli.js" },
+  "exports": "./dist/index.js",
+  "files": ["dist", "action.yml", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "check": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "prepare": "npm run build",
+    "prepack": "npm run check && npm test && npm run build"
+  },
+  "engines": { "node": ">=20" },
+  "keywords": ["github-releases", "release", "quality-gate", "ci", "github-action", "supply-chain"],
+  "author": "zhaoryder",
+  "license": "MIT",
+  "dependencies": { "commander": "^14.0.0", "picocolors": "^1.1.1", "yaml": "^2.8.1" },
+  "devDependencies": { "@types/node": "^24.0.0", "tsx": "^4.20.0", "typescript": "^5.9.0" }
+}
