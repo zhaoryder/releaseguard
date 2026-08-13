@@ -6,5 +6,6 @@ export interface Asset { name: string; size: number; url: string; contentType?: 
 export interface Release { repository: string; tag: string; name: string; url: string; draft: boolean; prerelease: boolean; publishedAt: string | null; assets: Asset[]; }
 export interface Finding { rule: string; level: Level; message: string; asset?: string; evidence?: string; }
 export interface AssetAnalysis { asset: Asset; platform: Platform; declaredArch: Arch; detectedArch: Arch; kind: string; findings: Finding[]; }
+export interface Recommendation { platform: Platform; arch: Arch; asset: Asset | null; alternatives: Asset[]; confidence: "exact" | "universal" | "fallback" | "none"; reason: string; }
 export interface Policy { requiredPlatforms: Platform[]; requireChecksums: boolean; requireVersionInAssets: boolean; maxAssetBytes: number; allowPrerelease: boolean; }
 export interface Report { schemaVersion: 1; generatedAt: string; release: Release; policy: Policy; score: number; summary: Record<Level, number>; findings: Finding[]; assets: AssetAnalysis[]; conclusion: "pass" | "warning" | "fail"; }

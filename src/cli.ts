@@ -5,9 +5,10 @@ import { analyze } from "./analyze.js";
 import { fetchRelease } from "./github.js";
 import { loadPolicy } from "./policy.js";
 import { size, writeReports } from "./report.js";
+import { hostArch, hostPlatform, recommendAsset } from "./recommend.js";
 
 const program = new Command();
-program.name("releaseguard").description("Verify that GitHub Release assets are ready for users.").version("0.1.1");
+program.name("releaseguard").description("Verify GitHub Release assets and tell users which download fits their device.").version("0.1.0");
 program.command("check <release>")
   .description("Check owner/repo, owner/repo@tag, or a GitHub release URL")
   .option("--policy <path>", "YAML policy file")
@@ -30,6 +31,13 @@ program.command("check <release>")
       }
       console.log("\nAssets");
       for (const item of report.assets) console.log(`${item.platform.padEnd(8)} ${item.declaredArch.padEnd(10)} ${size(item.asset.size).padStart(9)}  ${item.asset.name}`);
+      const recommendation = recommendAsset(report.release.assets, hostPlatform(), hostArch());
+      console.log(`\nRecommended download for ${hostPlatform()} ${hostArch()}`);
+      if (recommendation.asset) {
+        console.log(`${pc.green("→")} ${recommendation.asset.name}`);
+        console.log(pc.dim(recommendation.reason));
+        if (recommendation.alternatives.length) console.log(pc.dim(`Alternatives: ${recommendation.alternatives.map((asset) => asset.name).join(", ")}`));
+      } else console.log(pc.yellow(recommendation.reason));
       if (options.html) console.log(pc.dim(`\nHTML report: ${options.html}`));
     }
     if (options.failOn === "warning" && (report.summary.warning || report.summary.error)) process.exitCode = 1;
