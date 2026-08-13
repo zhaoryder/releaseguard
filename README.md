@@ -2,6 +2,8 @@
 
 # ReleaseGuard
 
+[![CI](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml/badge.svg)](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml) [![Latest release](https://img.shields.io/github/v/release/zhaoryder/releaseguard?display_name=tag&sort=semver)](https://github.com/zhaoryder/releaseguard/releases/latest) [![License](https://img.shields.io/github/license/zhaoryder/releaseguard)](LICENSE)
+
 English · [简体中文](README.zh-CN.md)
 
 ### Your CI passed. Did your downloads?
@@ -29,6 +31,8 @@ sharkdp/bat v0.26.1  82/100 FAIL
 Building an installer and shipping an installer are different jobs. Problems often appear after compilation: an `arm64` file contains an x64 binary, a tag says `v2.1.0` while the app says `2.0.9`, one platform never made it into the release, or every download exists but nobody published checksums.
 
 ReleaseGuard inspects the release users actually download—not the build folder you hoped you uploaded.
+
+If you ship a desktop, CLI, or mobile release with more than one platform, this is the 30-second preflight worth adding before you share the download link. If it catches a real release bug for you, a Star or a sanitized fixture helps the project grow in the right direction.
 
 ## Run it in 30 seconds
 

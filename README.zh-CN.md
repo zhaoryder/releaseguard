@@ -2,6 +2,8 @@
 
 # ReleaseGuard
 
+[![CI](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml/badge.svg)](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml) [![最新版本](https://img.shields.io/github/v/release/zhaoryder/releaseguard?display_name=tag&sort=semver)](https://github.com/zhaoryder/releaseguard/releases/latest) [![许可证](https://img.shields.io/github/license/zhaoryder/releaseguard)](LICENSE)
+
 [English](README.md) · 简体中文
 
 ### CI 绿了。用户下载的文件呢？
@@ -29,6 +31,8 @@ sharkdp/bat v0.26.1  82/100 FAIL
 把安装包编译出来，不等于把安装包正确地发布出去。很多问题发生在构建之后：文件名写着 `arm64`，里面却是 x64；标签已经是 `v2.1.0`，安装包仍叫 `2.0.9`；某个平台的产物根本没上传；下载文件看起来齐全，却没有任何校验文件。
 
 ReleaseGuard 检查的是用户真正会下载到的 Release，而不是你以为已经上传成功的构建目录。
+
+如果你发布桌面端、CLI 或移动端，并且需要覆盖多个平台，这就是发布前值得跑一遍的 30 秒检查。如果它帮你抓到过真实的发布问题，欢迎点 Star，或提交一份脱敏后的 fixture，让项目沿着真实需求继续变好。
 
 ## 30 秒上手
 
