@@ -41,7 +41,7 @@
     "yaml": "^2.8.1"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
+    "@types/node": "^26.2.0",
     "electron": "^37.2.6",
     "electron-builder": "^26.0.12",
     "tsx": "^4.20.0",
