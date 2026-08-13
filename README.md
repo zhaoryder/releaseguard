@@ -2,6 +2,8 @@
 
 # ReleaseGuard
 
+English · [简体中文](README.zh-CN.md)
+
 ### Your CI passed. Did your downloads?
 
 **A quality gate for GitHub Release assets.** Catch missing platforms, mislabeled architectures, empty installers, version drift, and missing checksums before users do.
