@@ -16,13 +16,16 @@ final class ReleaseModel: ObservableObject {
         let encoded = input.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? input
         guard let url = URL(string: "https://api.github.com/repos/\(encoded)/releases/latest") else { status = "Invalid repository."; busy = false; return }
         var request = URLRequest(url: url); request.setValue("application/vnd.github+json", forHTTPHeaderField: "Accept"); request.setValue("ReleaseGuardMac/0.1", forHTTPHeaderField: "User-Agent")
-        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
-            Task { @MainActor in
-                guard let self else { return }; self.busy = false
-                guard error == nil, let data, let http = response as? HTTPURLResponse, http.statusCode == 200 else { self.status = "Could not read this public release."; return }
-                do { self.release = try JSONDecoder().decode(Release.self, from: data); self.status = "Release loaded. Download an asset or inspect the report." } catch { self.status = "GitHub response changed; update ReleaseGuard." }
-            }
-        }.resume()
+        Task { [weak self] in
+            guard let self else { return }
+            do {
+                let (data, response) = try await URLSession.shared.data(for: request)
+                guard let http = response as? HTTPURLResponse, http.statusCode == 200 else { throw URLError(.badServerResponse) }
+                let loaded = try JSONDecoder().decode(Release.self, from: data)
+                self.release = loaded; self.status = "Release loaded. Download an asset or inspect the report."
+            } catch { self.status = "Could not read this public release." }
+            self.busy = false
+        }
     }
     var score: Int { guard let release else { return 0 }; var value = 100; if release.assets.isEmpty { value -= 40 }; if !release.assets.contains(where: { $0.name.lowercased().contains("sha256") || $0.name.lowercased().contains("checksum") }) { value -= 5 }; for platform in [".dmg", ".exe", ".appimage"] where !release.assets.contains(where: { $0.name.lowercased().hasSuffix(platform) }) { value -= 5 }; return max(value, 0) }
 }
