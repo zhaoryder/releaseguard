@@ -10,7 +10,7 @@
 
 **给 GitHub Release 产物加质量门禁和下载建议。** 在用户发现问题之前，找出缺失的平台、标错的架构、空安装包、版本不一致和缺失的校验文件，并告诉用户当前系统应该下载哪个文件。
 
-[30 秒上手](#30-秒上手) · [接入 GitHub Actions](#接入-github-actions) · [检查项目](#它能发现什么) · [示例报告](docs/example-report.png)
+[30 秒上手](#30-秒上手) · [在线演示](https://releaseguard.vercel.app/) · [接入 GitHub Actions](#接入-github-actions) · [检查项目](#它能发现什么) · [示例报告](docs/example-report.png)
 
 </div>
 

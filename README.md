@@ -10,7 +10,7 @@ English · [简体中文](README.zh-CN.md)
 
 **A quality gate and download advisor for GitHub Release assets.** Catch missing platforms, mislabeled architectures, empty installers, version drift, and missing checksums—and tell each user which file fits their OS and CPU.
 
-[Quick start](#run-it-in-30-seconds) · [GitHub Action](#add-the-quality-gate) · [Checks](#what-it-catches) · [Example report](docs/example-report.png)
+[Quick start](#run-it-in-30-seconds) · [Online demo](https://releaseguard.vercel.app/) · [GitHub Action](#add-the-quality-gate) · [Checks](#what-it-catches) · [Example report](docs/example-report.png)
 
 </div>
 
