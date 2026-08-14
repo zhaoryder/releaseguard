@@ -17,7 +17,7 @@
 ![ReleaseGuard 检查真实 Release 并发现缺少校验文件](docs/example-report.png)
 
 ```console
-$ npx --yes github:zhaoryder/releaseguard check sharkdp/bat
+$ npx --yes releaseguard check sharkdp/bat
 
 sharkdp/bat v0.26.1  82/100 FAIL
 21 assets · 21 passed · 0 warnings · 1 error
@@ -40,17 +40,17 @@ ReleaseGuard 检查的是用户真正会下载到的 Release，而不是你以�
 
 ```bash
 # 检查最新 Release
-npx --yes github:zhaoryder/releaseguard check cli/cli
+npx --yes releaseguard check cli/cli
 
 # 指定设备，直接获得对应下载建议
-npx --yes github:zhaoryder/releaseguard check cli/cli --platform macos --arch arm64
+npx --yes releaseguard check cli/cli --platform macos --arch arm64
 
 # 检查指定标签或完整 GitHub URL
-npx --yes github:zhaoryder/releaseguard check owner/repo@v1.2.0
-npx --yes github:zhaoryder/releaseguard check https://github.com/owner/repo/releases/tag/v1.2.0
+npx --yes releaseguard check owner/repo@v1.2.0
+npx --yes releaseguard check https://github.com/owner/repo/releases/tag/v1.2.0
 
 # 同时保存 HTML 和 JSON 报告，队友无需安装工具也能查看
-npx --yes github:zhaoryder/releaseguard check owner/repo --html release-report.html --json release-report.json
+npx --yes releaseguard check owner/repo --html release-report.html --json release-report.json
 ```
 
 ReleaseGuard 只读取公开的 Release 元数据和有限范围内的二进制文件头，不会执行下载的安装程序。
