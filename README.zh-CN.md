@@ -2,7 +2,7 @@
 
 # ReleaseGuard
 
-[![CI](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml/badge.svg)](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml) [![最新版本](https://img.shields.io/github/v/release/zhaoryder/releaseguard?display_name=tag&sort=semver)](https://github.com/zhaoryder/releaseguard/releases/latest) [![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-ReleaseGuard-2088ff?logo=github)](https://github.com/marketplace/actions/releaseguard-release-asset-quality-gate) [![许可证](https://img.shields.io/github/license/zhaoryder/releaseguard)](LICENSE)
+[![CI](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml/badge.svg)](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml) [![最新版本](https://img.shields.io/github/v/release/zhaoryder/releaseguard?display_name=tag&sort=semver)](https://github.com/zhaoryder/releaseguard/releases/latest) [![npm](https://img.shields.io/npm/v/releaseguard?logo=npm)](https://www.npmjs.com/package/releaseguard) [![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-ReleaseGuard-2088ff?logo=github)](https://github.com/marketplace/actions/releaseguard-release-asset-quality-gate) [![许可证](https://img.shields.io/github/license/zhaoryder/releaseguard)](LICENSE)
 
 [English](README.md) · 简体中文
 
@@ -10,7 +10,7 @@
 
 **给 GitHub Release 产物加质量门禁和下载建议。** 在用户发现问题之前，找出缺失的平台、标错的架构、空安装包、版本不一致和缺失的校验文件，并告诉用户当前系统应该下载哪个文件。
 
-[30 秒上手](#30-秒上手) · [在线演示](https://releaseguard.vercel.app/) · [接入 GitHub Actions](#接入-github-actions) · [检查项目](#它能发现什么) · [示例报告](docs/example-report.png)
+[30 秒上手](#30-秒上手) · [npm 包](https://www.npmjs.com/package/releaseguard) · [在线演示](https://releaseguard.vercel.app/) · [接入 GitHub Actions](#接入-github-actions) · [检查项目](#它能发现什么) · [示例报告](docs/example-report.png)
 
 </div>
 
@@ -37,6 +37,8 @@ ReleaseGuard 检查的是用户真正会下载到的 Release，而不是你以�
 ## 30 秒上手
 
 检查公开仓库不需要 Token，需要 Node.js 20 或更高版本。
+
+可以从 [npm](https://www.npmjs.com/package/releaseguard) 全局安装：`npm install --global releaseguard`；也可以直接使用 `npx --yes releaseguard`，无需全局安装。
 
 ```bash
 # 检查最新 Release

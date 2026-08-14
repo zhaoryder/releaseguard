@@ -2,7 +2,7 @@
 
 # ReleaseGuard
 
-[![CI](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml/badge.svg)](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml) [![Latest release](https://img.shields.io/github/v/release/zhaoryder/releaseguard?display_name=tag&sort=semver)](https://github.com/zhaoryder/releaseguard/releases/latest) [![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-ReleaseGuard-2088ff?logo=github)](https://github.com/marketplace/actions/releaseguard-release-asset-quality-gate) [![License](https://img.shields.io/github/license/zhaoryder/releaseguard)](LICENSE)
+[![CI](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml/badge.svg)](https://github.com/zhaoryder/releaseguard/actions/workflows/ci.yml) [![Latest release](https://img.shields.io/github/v/release/zhaoryder/releaseguard?display_name=tag&sort=semver)](https://github.com/zhaoryder/releaseguard/releases/latest) [![npm](https://img.shields.io/npm/v/releaseguard?logo=npm)](https://www.npmjs.com/package/releaseguard) [![GitHub Marketplace](https://img.shields.io/badge/GitHub%20Marketplace-ReleaseGuard-2088ff?logo=github)](https://github.com/marketplace/actions/releaseguard-release-asset-quality-gate) [![License](https://img.shields.io/github/license/zhaoryder/releaseguard)](LICENSE)
 
 English · [简体中文](README.zh-CN.md)
 
@@ -10,7 +10,7 @@ English · [简体中文](README.zh-CN.md)
 
 **A quality gate and download advisor for GitHub Release assets.** Catch missing platforms, mislabeled architectures, empty installers, version drift, and missing checksums—and tell each user which file fits their OS and CPU.
 
-[Quick start](#run-it-in-30-seconds) · [Online demo](https://releaseguard.vercel.app/) · [GitHub Action](#add-the-quality-gate) · [Checks](#what-it-catches) · [Example report](docs/example-report.png)
+[Quick start](#run-it-in-30-seconds) · [npm package](https://www.npmjs.com/package/releaseguard) · [Online demo](https://releaseguard.vercel.app/) · [GitHub Action](#add-the-quality-gate) · [Checks](#what-it-catches) · [Example report](docs/example-report.png)
 
 </div>
 
@@ -39,6 +39,8 @@ If you ship a desktop, CLI, or mobile release with more than one platform, this 
 ## Run it in 30 seconds
 
 No token is required for public repositories. Node.js 20+ is required.
+
+Install from [npm](https://www.npmjs.com/package/releaseguard) with `npm install --global releaseguard`, or use `npx --yes releaseguard` without a global install.
 
 ```bash
 # Latest release; the final section tells you what to download on this machine
