@@ -35,7 +35,7 @@ jobs:
           PLIST
           codesign --force --deep --sign - "$app"
           ditto -c -k --keepParent "$app" "ReleaseGuard-macos-arm64-${GITHUB_REF_NAME#v}.zip"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: native-macos
           path: native/macos/ReleaseGuardMac/ReleaseGuard-macos-*.zip
@@ -52,7 +52,7 @@ jobs:
           dotnet-version: "8.0.x"
       - run: dotnet publish -c Release -r win-x64 --self-contained true -o publish-x64
       - run: $version = $env:GITHUB_REF_NAME.Substring(1); Compress-Archive -Path publish-x64\* -DestinationPath "ReleaseGuard-windows-x64-$version.zip"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: native-windows
           path: native/windows/ReleaseGuard.WinUI/ReleaseGuard-windows-*.zip
@@ -68,7 +68,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build --release
       - run: tar -czf "ReleaseGuard-linux-x64-${GITHUB_REF_NAME#v}.tar.gz" -C target/release releaseguard-gtk
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: native-linux
           path: native/linux/releaseguard-gtk/ReleaseGuard-linux-x64-*.tar.gz
