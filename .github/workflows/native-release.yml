@@ -16,7 +16,7 @@ jobs:
         working-directory: native/macos/ReleaseGuardMac
     steps:
       - uses: actions/checkout@v4
-      - uses: swift-actions/setup-swift@v2
+      - uses: swift-actions/setup-swift@v3
         with:
           swift-version: "5.10"
       - run: swift build -c release
